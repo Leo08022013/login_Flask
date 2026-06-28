@@ -82,6 +82,14 @@ def signup():
     return render_template("signup.html")
 
 
+@app.route("/logout")
+def logout():
+    session.pop("user_id", None)
+    print("--- DEBUG: User ausgeloggt! Session user_id entfernt. ---")
+    flash("You have been logged out.", "info")
+    return redirect(url_for("login"))
+
+
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
