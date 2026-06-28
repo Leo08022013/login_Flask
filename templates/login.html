@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://googleapis.com');
+
+        .material-symbols-outlined {
+            font-size : 24px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=visibility" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=visibility_off" />
+</head>
+<body>
+    <div class="interface">
+        <form>
+            <input type="text" placeholder="&#xf007;  username" />
+            <input type="password" id="password" placeholder="&#xf023;  password" />
+            <i class="fas fa-eye" onclick="show()"></i>
+            <span id="visible" class="material-symbols-outlined" onclick="show()">visibility</span>
+
+
+            <br>
+            <br>
+            <button class="login-btn">LOGIN</button>
+            <p class="message"></p>
+        </form>
+
+    <script>
+        function show() {
+            var passwordInput = document.getElementById("password");
+            const visibleIcon = document.getElementById("visible").trim();
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+
+            if (visibleIcon.textContent.trim === "visibility") {
+                visibleIcon.textContent = "visibility_off";
+            } else {
+                visibleIcon.textContent = "visibility";
+            }
+        }
+    </script>
+</body>
+</html>
